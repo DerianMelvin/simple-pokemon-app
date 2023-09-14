@@ -52,7 +52,7 @@ function App() {
   };
 
   return (
-    <main className="w-full p-5 flex flex-col items-center justify-center gap-16">
+    <main className="w-full p-5 flex flex-col items-center justify-center gap-16 overflow-x-clip">
       {/* Background or Banner */}
       <div className="w-full h-48 absolute top-0 bg-sky-400 -z-10"></div>
 
@@ -89,7 +89,7 @@ function App() {
       </section>
 
       {/* Pokemon Details */}
-      <section className="w-full max-w-7xl flex items-center justify-center bg-red-500">
+      <section className="w-full max-w-7xl flex items-center justify-center">
         {pokemonData == undefined ? (
           <PokemonContainerEmpty />
         ) : isLoading ? (
