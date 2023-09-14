@@ -1,8 +1,17 @@
 export type PokemonData = {
   name: string;
   sprites: PokemonSprites;
+  stats: PokemonStats[];
 };
 
 type PokemonSprites = {
-  front_default: string;
+  other: {
+    "official-artwork": {
+      front_default: string;
+    };
+  };
+};
+
+type PokemonStats = {
+  base_stat: number;
 };
