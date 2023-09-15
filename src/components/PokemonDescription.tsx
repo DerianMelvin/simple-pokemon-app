@@ -86,7 +86,7 @@ export default function PokemonDescription({
             <div className="w-fit flex flex-col gap-3">
               <span className="text-2xl font-light">Habitat:</span>
               <span className="px-3 py-2 rounded-md text-white uppercase bg-slate-900">
-                {`${species.habitat.name}`}
+                {`${species.habitat == null ? "???" : species.habitat.name}`}
               </span>
             </div>
           </div>
