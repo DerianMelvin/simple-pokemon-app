@@ -9,7 +9,7 @@ export default function PokemonStats({ pokemon }: { pokemon: PokemonData }) {
 
   return (
     <div className="w-full flex flex-col items-center justify-center gap-8">
-      <div className="w-full rounded-lg border border-gray-200 bg-gradient-to-r from-blue-300">
+      <div className="w-full rounded-lg border border-blue-200 bg-gradient-to-r from-blue-300">
         <button
           onClick={() => setViewStats((value) => !value)}
           className="w-full flex items-center justify-between px-4 py-3"
@@ -22,7 +22,7 @@ export default function PokemonStats({ pokemon }: { pokemon: PokemonData }) {
       </div>
 
       {viewStats && (
-        <div className="w-fit flex flex-wrap items-center justify-center bg-gradient-to-r from-transparent via-white to-transparent">
+        <div className="w-fit flex flex-wrap items-center justify-center py-2 bg-gradient-to-r from-transparent via-white to-transparent">
           {pokemon.stats.map((stat, i) => (
             <div
               key={i}
