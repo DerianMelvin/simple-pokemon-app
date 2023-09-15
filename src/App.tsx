@@ -90,10 +90,10 @@ function App() {
 
       {/* Pokemon Details */}
       <section className="w-full max-w-7xl flex items-center justify-center">
-        {pokemonData == undefined ? (
-          <PokemonContainerEmpty />
-        ) : isLoading ? (
+        {isLoading ? (
           <PokemonContainerLoading />
+        ) : pokemonData == undefined ? (
+          <PokemonContainerEmpty />
         ) : (
           <PokemonContainer pokemon={pokemonData} />
         )}
