@@ -4,6 +4,8 @@ import PokemonContainerEmpty from "./components/PokemonContainerEmpty";
 import { PokemonData, SpeciesData } from "./types/Pokemon";
 import PokemonContainer from "./components/PokemonContainer";
 import PokemonContainerLoading from "./components/PokemonContainerLoading";
+import PokemonLogo from "./components/icons/PokemonLogo";
+import PokemonLoading from "./components/icons/PokemonLoading";
 
 function App() {
   const [searchBar, setSearchBar] = useState<string>("");
@@ -65,10 +67,21 @@ function App() {
   return (
     <main className="w-full p-5 flex flex-col items-center justify-center gap-16 overflow-x-clip">
       {/* Background or Banner */}
-      <div className="w-full h-48 absolute top-0 bg-sky-400 -z-10"></div>
+      <div className="w-full h-48 absolute flex justify-between top-0 -z-10">
+        <div className="w-full h-full bg-gradient-to-r from-green-400 to-sky-400"></div>
+        <div className="w-5/6 flex items-end justify-end bg-gradient-to-r from-sky-400 sm:w-3/6 md:w-2/6 lg:w-1/6 xl:w-[14%]">
+          <div></div>
+          <img
+            src="/banner.jpg"
+            alt="pokemon banner"
+            className="absolute h-48 object-cover -z-20"
+          />
+        </div>
+      </div>
 
       {/* Searchbar */}
-      <section className="w-full h-36 max-w-7xl flex items-center justify-center bg-green-400">
+      <section className="w-full h-36 max-w-7xl flex flex-col items-center justify-center gap-4">
+        <PokemonLogo size={170} />
         <form
           onSubmit={(e) => {
             e.preventDefault();
@@ -92,9 +105,9 @@ function App() {
           </div>
           <button
             type="submit"
-            className="px-4 py-2 rounded-full bg-red-500 text-white"
+            className="px-1 py-1 rounded-full bg-red-500 rotate-45"
           >
-            Search
+            <PokemonLoading size={35} />
           </button>
         </form>
       </section>
