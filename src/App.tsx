@@ -1,29 +1,39 @@
 import { useState } from "react";
 import axios, { AxiosError } from "axios";
 import PokemonContainerEmpty from "./components/PokemonContainerEmpty";
-import { PokemonData } from "./types/Pokemon";
+import { PokemonData, SpeciesData } from "./types/Pokemon";
 import PokemonContainer from "./components/PokemonContainer";
 import PokemonContainerLoading from "./components/PokemonContainerLoading";
 
 function App() {
   const [searchBar, setSearchBar] = useState<string>("");
-  const [pokemonData, setPokemonData] = useState<undefined | PokemonData>();
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [pokemonData, setPokemonData] = useState<undefined | PokemonData>();
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [speciesData, setSpeciesData] = useState<any | SpeciesData>();
 
-  const fetchPokemonData = async () => {
+  const fetchData = async () => {
     // Throw error if search bar is empty
     if (searchBar.length == 0) {
       throw new Error("Search bar is empty");
     }
 
-    // Trigger loading & fetch Data
+    // Trigger loading & fetch pokemon data
     setIsLoading(true);
-    const response = await axios.get(
+    const pokemon = await axios.get(
       `https://pokeapi.co/api/v2/pokemon/${searchBar}`
     );
 
-    setPokemonData(response.data);
-    console.log(response.data);
+    console.log("Pokemon Data:");
+    setPokemonData(pokemon.data);
+    console.log(pokemon.data);
+
+    // Fetch species data using url from pokemon data
+    const species = await axios.get(pokemon.data.species.url);
+
+    console.log("Species Data:");
+    setSpeciesData(species.data);
+    console.log(species.data);
 
     // Remove loading
     setIsLoading(false);
@@ -31,10 +41,11 @@ function App() {
 
   const handleDataFetch = async () => {
     try {
-      await fetchPokemonData();
+      await fetchData();
     } catch (e: unknown) {
       // Remove data
       setPokemonData(undefined);
+      setSpeciesData(undefined);
 
       // Remove loading
       setIsLoading(false);
@@ -95,7 +106,7 @@ function App() {
         ) : pokemonData == undefined ? (
           <PokemonContainerEmpty />
         ) : (
-          <PokemonContainer pokemon={pokemonData} />
+          <PokemonContainer pokemon={pokemonData} species={speciesData} />
         )}
       </section>
     </main>

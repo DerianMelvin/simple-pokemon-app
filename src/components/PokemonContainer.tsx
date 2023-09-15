@@ -1,12 +1,15 @@
-import { PokemonData } from "../types/Pokemon";
+import { PokemonData, SpeciesData } from "../types/Pokemon";
 import { AsyncImage } from "../utils/AsyncImage";
+import PokemonDescription from "./PokemonDescription";
 import PokemonStats from "./PokemonStats";
 import PokemonBackground from "./icons/PokemonBackground";
 
 export default function PokemonContainer({
   pokemon,
+  species,
 }: {
   pokemon: PokemonData;
+  species: SpeciesData;
 }) {
   return (
     <div className="w-full flex flex-col items-center justify-center gap-6">
@@ -24,6 +27,7 @@ export default function PokemonContainer({
       </h1>
 
       <PokemonStats pokemon={pokemon} />
+      <PokemonDescription pokemon={pokemon} species={species} />
     </div>
   );
 }
