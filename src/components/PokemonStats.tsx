@@ -9,12 +9,12 @@ export default function PokemonStats({ pokemon }: { pokemon: PokemonData }) {
 
   return (
     <div className="w-full flex flex-col items-center justify-center gap-8">
-      <div className="w-full rounded-lg border border-gray-200 bg-gradient-to-r from-slate-300">
+      <div className="w-full rounded-lg border border-gray-200 bg-gradient-to-r from-blue-300">
         <button
           onClick={() => setViewStats((value) => !value)}
           className="w-full flex items-center justify-between px-4 py-3"
         >
-          <span className="text-2xl">Stats</span>
+          <span className="text-3xl font-light">Stats</span>
           <div className={`min-w-fit ${viewStats ? "rotate-180" : ""}`}>
             <ChevronDown size={40} />
           </div>
