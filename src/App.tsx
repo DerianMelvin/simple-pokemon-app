@@ -26,16 +26,12 @@ function App() {
       `https://pokeapi.co/api/v2/pokemon/${searchBar}`
     );
 
-    console.log("Pokemon Data:");
     setPokemonData(pokemon.data);
-    console.log(pokemon.data);
 
     // Fetch species data using url from pokemon data
     const species = await axios.get(pokemon.data.species.url);
 
-    console.log("Species Data:");
     setSpeciesData(species.data);
-    console.log(species.data);
 
     // Remove loading
     setIsLoading(false);
@@ -66,7 +62,6 @@ function App() {
 
   return (
     <main className="w-full p-5 flex flex-col items-center justify-center gap-16 overflow-x-clip">
-      {/* Background or Banner */}
       <div className="w-full h-48 absolute flex justify-between top-0 -z-10">
         <div className="w-full h-full bg-gradient-to-r from-green-400 to-sky-400"></div>
         <div className="w-5/6 flex items-end justify-end bg-gradient-to-r from-sky-400 sm:w-3/6 md:w-2/6 lg:w-1/6 xl:w-[14%]">
@@ -79,7 +74,6 @@ function App() {
         </div>
       </div>
 
-      {/* Searchbar */}
       <section className="w-full h-36 max-w-7xl flex flex-col items-center justify-center gap-4">
         <PokemonLogo size={170} />
         <form
@@ -112,7 +106,6 @@ function App() {
         </form>
       </section>
 
-      {/* Pokemon Details */}
       <section className="w-full max-w-7xl flex items-center justify-center">
         {isLoading ? (
           <PokemonContainerLoading />
