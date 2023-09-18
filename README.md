@@ -11,7 +11,7 @@ This is a simple app where you can access Pokemon-related information through [P
 
 ### 🔗 [Live Demo](https://simplepokeapp.netlify.app/)
 
-## Getting Started
+## ⚙️ Getting Started
 
 To run the app on your local machine:
 
@@ -27,19 +27,23 @@ git clone https://github.com/DerianMelvin/simple-pokemon-app.git
 cd simple-pokemon-app
 ```
 
-1. Install project dependencies with [PNPM](https://pnpm.io/):
+3. Install project dependencies with [NPM](https://www.npmjs.com/) or [PNPM](https://pnpm.io/):
 
 ```bash
+npm install
+
+# OR
+
 pnpm install
 ```
 
-1. Start the development server:
+4. Start the development server:
 
 ```bash
 pnpm dev
 ```
 
-The application will launch and can be viewed in your web browser at `http://localhost:5173`.
+The application will launch and can be viewed in your web browser at [http://localhost:5173](http://localhost:5173).
 
 ## 🛠️ Tools & Tech
 
