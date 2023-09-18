@@ -32,13 +32,17 @@ export default function PokemonDescription({
 
   return (
     <div className="w-full flex flex-col items-center justify-center gap-8">
-      <div className="w-full rounded-lg border border-red-200 bg-gradient-to-r from-red-300">
+      <div className="w-full rounded-lg border border-red-200 bg-gradient-to-r from-red-300 hover:bg-red-300 transition-all ease-out duration-300">
         <button
           onClick={() => setViewDescription((value) => !value)}
           className="w-full flex items-center justify-between px-4 py-3"
         >
           <span className="text-3xl font-light">Description</span>
-          <div className={`min-w-fit ${viewDescription ? "rotate-180" : ""}`}>
+          <div
+            className={`min-w-fit ${
+              viewDescription ? "rotate-180" : ""
+            } transition-all ease-out duration-200`}
+          >
             <ChevronDown size={40} />
           </div>
         </button>

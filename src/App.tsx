@@ -99,7 +99,7 @@ function App() {
           </div>
           <button
             type="submit"
-            className="px-1 py-1 rounded-full bg-red-500 rotate-45"
+            className="px-1 py-1 rounded-full bg-red-500 rotate-45 hover:scale-125 hover:rotate-[65deg] transition-all ease-out duration-300"
           >
             <PokemonLoading size={35} />
           </button>
